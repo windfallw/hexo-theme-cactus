@@ -1,23 +1,23 @@
 <!-- jquery -->
-<% if (isCdnEnable('jquery')) {%> 
-  <%- getCdnScript('jquery') %> 
-<% } else { %> 
+<% if (isCdnEnable('jquery')) {%>
+  <%- getCdnScript('jquery') %>
+<% } else { %>
   <%- js('lib/jquery/jquery.min') %>
 <% } %>
 
 <% if (page.photos && page.photos.length) { %>
   <% if (isCdnEnable('justified_gallery_js')) {%>
-    <%- getCdnScript('justified_gallery_js') %> 
-  <% } else { %> 
+    <%- getCdnScript('justified_gallery_js') %>
+  <% } else { %>
     <%- js('lib/justified-gallery/js/jquery.justifiedGallery.min.js') %>
-  <% } %> 
+  <% } %>
 <% } %>
 
 <!-- clipboard -->
 <% if (is_post()){ %>
   <% if (isCdnEnable('clipboard')) { %>
-    <%- getCdnScript('clipboard') %> 
-  <% } else { %> 
+    <%- getCdnScript('clipboard') %>
+  <% } else { %>
     <%- js('lib/clipboard/clipboard.min') %>
   <% } %>
   <script type="text/javascript">
@@ -25,7 +25,7 @@
     // copy-btn HTML
     var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"<%= __('tooltip.copy_tip') %>\">";
     btn += '<i class="far fa-clone"></i>';
-    btn += '</span>'; 
+    btn += '</span>';
     // mount it!
     $(".highlight table").before(btn);
     var clip = new ClipboardJS('.btn-copy', {
@@ -105,10 +105,6 @@
 <!-- Cloudflare Analytics -->
 <% if (theme.cloudflare_analytics.enabled && theme.cloudflare_analytics.id){ %>
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "<%= theme.cloudflare_analytics.id %>"}'></script>
-<% } %>
-<!-- Umami Analytics -->
-<% if (theme.umami_analytics.enabled && theme.umami_analytics.id && theme.umami_analytics.host){ %>
-  <script async defer data-website-id="<%= theme.umami_analytics.id %>" src="<%= theme.umami_analytics.host %>/umami.js"></script>
 <% } %>
 <!-- Disqus Comments -->
 <% if (page.comments && theme.disqus.enabled && theme.disqus.shortname){ %>
